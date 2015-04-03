@@ -1,0 +1,3 @@
+#!/bin/sh
+export PYTHONPATH=".:$PYTHONPATH"
+python ./manage.py runwsgiserver --settings=settings_statics

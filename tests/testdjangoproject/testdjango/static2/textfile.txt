@@ -1,0 +1,1 @@
+This textfile is in the static2 directory

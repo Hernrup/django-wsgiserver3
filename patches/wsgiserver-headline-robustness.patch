@@ -1,0 +1,14 @@
+diff -r cb1e5c8f3ce6 django_wsgiserver/wsgiserver/__init__.py
+--- a/django_wsgiserver/wsgiserver/__init__.py	Mon Nov 01 11:51:46 2010 -0700
++++ b/django_wsgiserver/wsgiserver/__init__.py	Mon Nov 08 10:32:29 2010 -0800
+@@ -166,7 +166,9 @@
+             try:
+                 k, v = line.split(":", 1)
+             except ValueError:
+-                raise ValueError("Illegal header line.")
++                # raise ValueError("Illegal header line.")
++                print "Illegal header line" # add loging
++                continue 
+             # TODO: what about TE and WWW-Authenticate?
+             k = k.strip().title()
+             v = v.strip()

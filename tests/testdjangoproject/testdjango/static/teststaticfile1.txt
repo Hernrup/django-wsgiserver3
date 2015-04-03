@@ -1,0 +1,2 @@
+teststaticfile1.txt
+this is in the root of the static/ file directory and is independent of the app directory version

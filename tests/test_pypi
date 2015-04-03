@@ -1,0 +1,11 @@
+# sketch test out a potential upload or an actual upload to pypi
+# requires: virtualenv, pip
+
+# create a virtualenv testenv
+# activate the enviroment
+# install $pkg:
+# pip install -e $pkgrepo
+# pip install $pkg
+# pip install -e $testprojdir
+# cd tesprojdir; python manage.py tests
+# also do visual tests

@@ -1,0 +1,36 @@
+diff -r ../django_wsgiserver/wsgiserver/ssl_builtin.py ../../cherrypy/cherrypy/wsgiserver/ssl_builtin.py
+24c24
+< from django_wsgiserver import wsgiserver
+---
+> from cherrypy import wsgiserver
+Only in ../django_wsgiserver/wsgiserver: ssl_builtin.pyc
+diff -r ../django_wsgiserver/wsgiserver/ssl_pyopenssl.py ../../cherrypy/cherrypy/wsgiserver/ssl_pyopenssl.py
+37c37
+< from django_wsgiserver import wsgiserver
+---
+> from cherrypy import wsgiserver
+diff -r ../django_wsgiserver/wsgiserver/wsgiserver2.py ../../cherrypy/cherrypy/wsgiserver/wsgiserver2.py
+230,232c230
+<                 # raise ValueError("Illegal header line.")
+<                 #print "Illegal header line" # ignore illegal headers instead of cherrpy blow up, add loging !!! -clm
+<                 continue 
+---
+>                 raise ValueError("Illegal header line.")
+1808c1806
+<                 from django_wsgiserver.wsgiserver.ssl_pyopenssl import pyOpenSSLAdapter
+---
+>                 from cherrypy.wsgiserver.ssl_pyopenssl import pyOpenSSLAdapter
+2072,2073c2070,2071
+<     'builtin': 'django_wsgiserver.wsgiserver.ssl_builtin.BuiltinSSLAdapter',
+<     'pyopenssl': 'django_wsgiserver.wsgiserver.ssl_pyopenssl.pyOpenSSLAdapter',
+---
+>     'builtin': 'cherrypy.wsgiserver.ssl_builtin.BuiltinSSLAdapter',
+>     'pyopenssl': 'cherrypy.wsgiserver.ssl_pyopenssl.pyOpenSSLAdapter',
+diff -r ../django_wsgiserver/wsgiserver/wsgiserver3.py ../../cherrypy/cherrypy/wsgiserver/wsgiserver3.py
+217,218d216
+<                 #logger.error("400 Bad Request: Illegal header line") # ignore illegal headers instead of cherrpy blow up, add loging !!! -clm
+<                 continue 
+1777c1775
+<     'builtin': 'django_wsgiserver.wsgiserver.ssl_builtin.BuiltinSSLAdapter',
+---
+>     'builtin': 'cherrypy.wsgiserver.ssl_builtin.BuiltinSSLAdapter',

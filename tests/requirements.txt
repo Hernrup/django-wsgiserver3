@@ -1,0 +1,3 @@
+django==1.5.1
+requests
+# pyopenssl  # optional, no longer required for testing

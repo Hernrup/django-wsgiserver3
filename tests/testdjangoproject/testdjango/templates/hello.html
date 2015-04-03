@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>django-wsgiserver</title>
+  </head>
+  <body><h2>hello django-wsgiserver</h2>
+ 
+    <h3>Tests</h3>
+    <ul>
+      <li> <a href="/admin/">Check the default admin css media service</a></li>
+      </ul>
+
+{% if 1 %}
+      <h4> if static file serving enabled </h4>
+      <ul>
+      <li> <a href="/static/textfile.txt">/static/textfile.txt </a></li>
+      <li> <a href="/static/htmlfile.html">/static/htmlfile.txt </a></li>
+      <li> <a href="/static/static2/textfile2.txt"> from static2/textfile2.txt mapped back to static </a></li>
+      <li> <a href="/static/static2/substatic2/sub_textfile.txt"> static2/substatic2/sub_textfile.txt </a></li>
+
+      <li> <a href="/static/../settings.py"> /static/../settings.py security test</a> should not return the settings.py file! (either forbidden or remap to another url)</li>
+
+      {% else %}
+      <li> Staticfiles are not being used </li>
+{% endif %}
+    </ul>
+</body>
+</html>

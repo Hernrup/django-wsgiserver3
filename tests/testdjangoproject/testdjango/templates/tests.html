@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+  
+  {% block content %}
+
+  <div style="display:none"> <-- force inclusion of the cookie -->
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}"/>
+  </div>
+
+<!--
+  <h3>Interactive Tests</h3>
+  <ul>
+    <li> <a href="/admin/">Check the default admin css media service</a> It should look normal if staticfiles are being loaded automatically</li>
+  </ul>
+  --!>
+  
+  <h3>Ajax tests</h3>
+  <ul id='ajaxtest_ulist'>
+    <li> <a id='ajaxget'>test ajax get</a> <span id='ajaxgetresult'></span></li>
+    <li> <a id='ajaxpost'>test ajax post</a><span id='ajaxpostresult'></span></li>
+    <li> <a id='ajaxput'>test ajax put</a><span id='ajaxputresult'></span></li>
+    <li> <a id='ajaxdelete'>test ajax delete</a><span id='ajaxdeleteresult'></span></li>
+  </ul>
+
+  {% endblock content %}
+  {% block extra_js %}
+  <script>
+    $('ajaxget')
+
+
+  $('#ajaxget')
+      .click(  function(ev) {
+          $('#ajaxgetresult').text('..testing').css('color','red')
+          // alert('I was clicked');
+          $.get('{% url "testajax" %}',
+                function(response) {
+                     console.log(response);
+		     $('#ajaxgetresult').text('..success!').css('color', 'green')
+	        })
+	  })
+       
+
+
+
+  $('#ajaxpost')
+    .click(function(ev) {
+        $('#ajaxpostresult').text('..testing').css('color','red')
+        django_ajax('POST', '{% url "testajax" %}', function(response) {
+            console.log(response);
+	    $('#ajaxpostresult').text('..success!').css('color', 'green')
+        })
+     }
+  )
+
+  $('#ajaxput')
+    .click(function(ev) {
+        $('#ajaxputresult').text('..testing').css('color','red')
+        django_ajax('PUT', '{% url "testajax" %}', function(response) {
+            console.log(response);
+	    $('#ajaxputresult').text('..success!').css('color', 'green')
+        })
+     }
+  )
+
+  $('#ajaxdelete')
+    .click(function(ev) {
+        $('#ajaxdeleteresult').text('..testing').css('color','red')
+        django_ajax('DELETE', '{% url "testajax" %}', function(response) {
+            console.log(response);
+	    $('#ajaxdeleteresult').text('..success!').css('color', 'green')
+        })
+     }
+  )
+  $(document).ready(function () {
+     anchors= $('#ajaxtest_ulist a');
+     //console.log(anchors);
+
+    $(anchors).each(function(ii,elem) {
+         $(this).trigger('click');
+	 })
+  });
+  </script>
+  {% endblock extra_js %}
+  </body>
+</html>

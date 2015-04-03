@@ -1,0 +1,2 @@
+#!/bin/sh
+python manage.py runwsgiserver ssl_certificate=`pwd`/testserver.crt ssl_private_key=`pwd`/testserver.key port=8443

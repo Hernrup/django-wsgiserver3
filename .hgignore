@@ -1,0 +1,16 @@
+syntax: glob
+*.pyc
+django_wsgiserver.egg-info*
+*~
+\#*
+.\#*
+*.ropeproject*
+*.svn*
+dist/*
+build/*
+MANIFEST
+*.sqlite
+tests/testdjangoproject/site_static/*
+
+.git
+.git*

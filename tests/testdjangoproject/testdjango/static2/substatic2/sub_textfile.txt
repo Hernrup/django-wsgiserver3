@@ -1,0 +1,2 @@
+a text file that lives in static2/substatic2/sub_textfile.txt
+
