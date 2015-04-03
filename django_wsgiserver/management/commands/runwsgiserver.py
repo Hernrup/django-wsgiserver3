@@ -200,8 +200,8 @@ def start_server(options):
         # ensure the that the daemon runs as specified user
         change_uid_gid(options['server_user'], options['server_group'])
 
-    from django_wsgiserver.wsgiserver import CherryPyWSGIServer
-    #from cherrypy.wsgiserver import CherryPyWSGIServer
+    # from django_wsgiserver.wsgiserver import CherryPyWSGIServer
+    from cherrypy.wsgiserver import CherryPyWSGIServer
     from django.core.handlers.wsgi import WSGIHandler
     app = WSGIHandler()
     # if options['adminserve']: # serve the admin media too
